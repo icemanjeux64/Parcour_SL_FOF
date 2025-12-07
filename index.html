@@ -48,8 +48,9 @@
 
         /* FOF Logo specific styles */
         .fof-logo-circle {
-            width: 60px;
-            height: 60px;
+            /* Default size for main menu */
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-color: #0d2847;
             display: flex;
@@ -59,24 +60,35 @@
             overflow: hidden;
             border: 2px solid #2a6ecb;
             box-shadow: 0 0 15px rgba(42, 110, 203, 0.6);
+            transition: all 0.3s ease;
         }
+        
+        /* Small variant for headers */
+        .fof-logo-circle.small {
+            width: 48px;
+            height: 48px;
+            border-width: 1px;
+            box-shadow: 0 0 8px rgba(42, 110, 203, 0.4);
+        }
+
         .fof-logo-circle::before {
             content: "";
             position: absolute;
             width: 90%;
             height: 90%;
             border-radius: 50%;
-            border: 2px solid #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             box-sizing: border-box;
             opacity: 0.8;
+            pointer-events: none;
         }
-        .fof-flame {
-            width: 40px;
-            height: 40px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI0ZGMDAwMCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6TTggMTYuNzVjLS42OS0xLjU1LS44NS0yLjU1LS41NS0zLjE1LjI5LS41OSAxLjExLS44NiAxLjg5LS42Mi43Ny4yMyAxLjE1LjY4Ljk5IDEuMTItLjExLjMyLS41MS41NS0xLjExLjU1LS40MiAwLS41My0uMjYtLjU2LS42MmEzLjAzIDMuMDMgMCAwIDEtLjAyLS45N2MuMDYtLjgyLjUtMS43MSAxLjA1LTIuNDIuNjUtLjg1IDEuNjYtMS40NCAyLjg0LTEuNjUuODYtLjE1IDEuODktLjE1IDIuNzctLjA0IDEuMjEuMTYgMi4yNS41NyAyLjk3IDEuMTIuNTIuMzggLjc2Ljc5Ljc3IDEuMDYuMDYuMjYtLjA2LjUyLS4yNy43NS0uMDQuMDQtLjA5LjA4LS4xMy4xMi0uMjMuMjMtLjUuNDctLjc3LjcwLS42LjUyLS44NSAxLjA1LS41NSAxLjU5LjI0LjQ1LjcyLjY1IDEuMjUuNjUuNTEgMC42Ny0uMTMuODMtLjMyLjIyLS42LjY0LS43Ny42NC0uNjYuMzItLjIyLjY2LS41Mi45Mi0uNzguNDktLjUxLjk4LTEuMSAxLjQ2LTEuNzQuMjEtLjI4LjQxLS41NS41Ni0uODcuMTEtLjI3LjEzLS41NS4wMi0uODctLjEtLjIyLS40MS0uNDEtLjc1LS41MS0uMTktLjA3LS40MS0uMDctLjYxLS4wNi0uNzcuMDQtMS40Mi4xNS0xLjk5LjMtLjU2LjE0LS45OC4zMi0xLjQ2LjY2LS43MS41MS0xLjI0IDEuMjItMS41MSAyLjE2LS4yLjcyLS4xNiAxLjUtLjA0IDIuMzQuMTYuOTUuNjggMS43MSAxLjU3IDIuMjcuODQuNTUgMS44OS44MSAzLjE0LjkxLjY0LjA1IDEuMzEuMDYgMS45OS4wNSAxLjMyLS4wNCAyLjQ2LS40MSAzLjI2LS45OS41OS0uNDQuOTUtMS4wMSAxLjEtMS41Ni4xLS40LS4wNi0uNzctLjQ1LTEuMDUtLjM5LS4yOC0uOTItLjM0LTEuNDktLjIyLS42LjEyLTEuMDYuNTEtMS4zOSAxLjA3LS4yNy40Ni0uNTEuOTUtLjc1IDEuNTRsLS4wNS4xMmEyLjkyMiAyLjkyMiAwIDAgMS0uMzUuODguOTg3Ljk4NyAwIDAgMS0uNzk0Ljg4MiAxLjAwMiAxLjAwMiAwIDAgMS0uNjI4LS4xODYgMS4wNTYgMS4wNTYgMCAwIDEtLjM5NS0uNjQzYy0uMTQ0LS42MDUtLjA3My0xLjMzNy4yMDgtMi4xMDVsLjEyLS4yOThjLjExLS4zLjIyLS42Mi4yNy0uOTQuMDgtLjYxLS4yMS0xLjE4LS44LTIuMDEtLjQ2LS42My0xLjE1LTEuMDctMS44Mi0xLjI5LS43NC0uMjQtMS41OS0uMjItMi40Mi0uMDctMS4xOS4yMy0yLjIuNzMtMi45MiAxLjUtLjUyLjU2LS43OCAxLjEzLS43OCAxLjc3LS4wMi42LjM1IDEuMDkuOTMgMS41My4xNC4xMS4yOS4yMi40My4zMmwxLjMxIDEuMjljLjU1LjU0IDEuMDEgMS4xMyAxLjMxIDEuOC4yMS40OC4zMSAxLjAxLjI5IDEuNTItLjAyLjY2LS40IDEuMjUtLjk2IDEuNjItLjU3LjM3LTEuMzQuNDktMi4wOS4zOS0uNTEtLjA4LTEtLjI2LTEuNDEtLjQ4LS41MS0uMjgtLjg3LS42OC0xLjExLTEuMTUtLjA1LS4xLS4wOS0uMjEtLjEzLS4zMi0uNDktMS40Mi0uMzktMi44LS4xMS00LjA3bC4xMS0uMjVjLjEyLS4zLjI2LS41OS40Mi0uODcuMzUtLjYxLjc0LTEuMTcgMS4yLTIuNTUuMDktLjI4LjE3LS41NS4yNS0uODMuMDktLjMxLjA3LS42Ni0uMDYtLjk2LS4xMS0uMjctLjM5LS40NS0uNzItLjU3LS4xOS0uMDctLjQtLjA5LS42MS0uMDQtLjcyLjE3LTEuMzMuNTUtMS42MSAxLjA1LS4yOC41LS4zOCAxLjA1LS4zMiAxLjU4bC4wNy42NWMuMDYuNi4xNiAxLjE4LjI2IDEuNzZsLjA3LjQyYy4wMy4xNi4wOC4zMS4xMy40Ny4yNS44LjY0IDEuNDcgMS4xNCAyLjExLjQ5LjYxIDEuMDkgMS4xNiAxLjgxIDEuNjIuODQuNTIgMS43Ny44MiAyLjgyLjk1LjYzLjA5IDEuMjkuMDcgMS45Ni4wNEMxNi40MiAxOS4wNSAxOC41MyAxOC4zMiAxOS45OSAxNi44NyAyMS41MyAxNS4yNSAyMiAxMy40MiAyMiAxMS40OCAyMiA4LjAzIDE5LjYyIDUuMjQgMTYuNjEgMy42MUMxNC4xOSAyLjMyIDEyIDIuMDkgMTIgMnoiLz48L3N2Zz4=');
-            background-size: contain;
-            background-repeat: no-repeat;
-            filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+
+        .fof-logo-img {
+            width: 75%;
+            height: 75%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+            z-index: 10;
         }
     </style>
 </head>
@@ -144,6 +156,22 @@
         ];
 
         // --- Shared Components ---
+        const Logo = ({ small = false }) => (
+            <div className={`fof-logo-circle ${small ? 'small' : ''}`}>
+                <img src="logo.png" alt="FOF Logo" className="fof-logo-img" onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentNode.style.backgroundColor = '#0d2847';
+                    // Fallback to text if image fails
+                    const span = document.createElement('span');
+                    span.innerText = 'FOF';
+                    span.style.color = 'white';
+                    span.style.fontWeight = 'bold';
+                    span.style.fontSize = small ? '12px' : '20px';
+                    e.target.parentNode.appendChild(span);
+                }}/>
+            </div>
+        );
+
         const StepIndicator = ({ currentStep, totalSteps, label }) => (
             <div className="flex items-center space-x-2 mb-6">
                 {Array.from({ length: totalSteps }).map((_, index) => (
@@ -264,12 +292,15 @@
 
             return (
                 <div className="animate-in fade-in slide-in-from-right-8 duration-300">
-                     <header className="mb-6 border-b border-indigo-500/30 pb-4">
-                        <h2 className="text-xl font-bold text-indigo-400 flex items-center space-x-2">
-                            <UserPlus size={24}/>
-                            <span>DEMANDE DE SUIVI</span>
-                        </h2>
-                        <p className="text-xs text-slate-500 font-mono mt-1">MODULE STAGIAIRE</p>
+                     <header className="mb-6 border-b border-indigo-500/30 pb-4 flex items-center justify-between">
+                        <div>
+                            <h2 className="text-xl font-bold text-indigo-400 flex items-center space-x-2">
+                                <UserPlus size={24}/>
+                                <span>DEMANDE DE SUIVI</span>
+                            </h2>
+                            <p className="text-xs text-slate-500 font-mono mt-1">MODULE STAGIAIRE</p>
+                        </div>
+                        <Logo small={true} />
                     </header>
 
                     <StepIndicator currentStep={step} totalSteps={2} label="ETAPE" />
@@ -394,12 +425,15 @@
 
             return (
                 <div className="animate-in fade-in slide-in-from-right-8 duration-300">
-                    <header className="mb-6 border-b border-indigo-500/30 pb-4">
-                        <h2 className="text-xl font-bold text-indigo-400 flex items-center space-x-2">
-                            <Shield size={24}/>
-                            <span>COMPTE RENDU</span>
-                        </h2>
-                        <p className="text-xs text-slate-500 font-mono mt-1">MODULE MENTOR</p>
+                    <header className="mb-6 border-b border-indigo-500/30 pb-4 flex items-center justify-between">
+                        <div>
+                            <h2 className="text-xl font-bold text-indigo-400 flex items-center space-x-2">
+                                <Shield size={24}/>
+                                <span>COMPTE RENDU</span>
+                            </h2>
+                            <p className="text-xs text-slate-500 font-mono mt-1">MODULE MENTOR</p>
+                        </div>
+                        <Logo small={true} />
                     </header>
 
                     <StepIndicator currentStep={step} totalSteps={4} label="PHASE" />
@@ -499,8 +533,8 @@
         const MainMenu = ({ onSelect }) => (
             <div className="flex flex-col items-center justify-center space-y-6 h-full py-10 animate-in zoom-in-95 duration-500">
                 <div className="text-center mb-6">
-                    <div className="fof-logo-circle mx-auto mb-6 transform hover:scale-110 transition-transform duration-500">
-                        <div className="fof-flame"></div>
+                    <div className="mx-auto mb-6 transform hover:scale-110 transition-transform duration-500">
+                        <Logo />
                     </div>
                     
                     <h1 className="text-3xl md:text-4xl font-black tracking-widest text-white uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
